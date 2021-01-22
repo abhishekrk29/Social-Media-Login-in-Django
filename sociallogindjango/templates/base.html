@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    {% block title%}
+
+    {% endblock %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #563d7c;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);">
+        <h4 style="color:antiquewhite;">Session Management</h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/" style="color: rgb(226, 160, 73);"><h5>&nbsp;&nbsp;&nbsp;Home</h5> <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </ul>
+
+        <ul class="nav navbar-nav justify-content-end">
+            {% if not user and not request.session.user %}
+            <li><a href="/login"><button class="btn btn-outline-success" type="button">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="/signup"><button class="btn btn-outline-success" type="button">Sign Up</button></a></li>
+            {% elif request.session.user %}
+            <li><h5 style="color: white;">Welcome {{firstname}} &nbsp;&nbsp;&nbsp;&nbsp;</h5> </li>
+            <li><a href="/logout"><button class="btn btn-outline-success" type="button">Logout</button></a></li>
+            {% endif %}
+        </ul>
+        <ul class="nav navbar-nav justify-content-end">  
+            {% if user and not user.is_anonymous %}
+            <li><h5 style="color: white;">Welcome {{user.get_full_name}} &nbsp;&nbsp;&nbsp;&nbsp;</h5> </li>
+            <li><a href="/logout"><button class="btn btn-outline-success" type="button">Logout</button></a></li>
+            {% else %}
+            <li><a href="/login"><button class="btn btn-outline-success" type="button">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="/signup"><button class="btn btn-outline-success" type="button">Sign Up</button></a></li>
+            {% endif %}
+        </ul>
+
+        </div>
+      </nav>
+    </div>  
+    {% block content%}
+
+    {% endblock %}
+    <!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'js/main.js' %}" ></script>
+<!--===============================================================================================-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>

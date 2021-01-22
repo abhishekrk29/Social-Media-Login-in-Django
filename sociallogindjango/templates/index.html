@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}
+    <title>Session Management</title>
+{% endblock %}
+{% block content%}
+<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpg' %});">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form class="login100-form validate-form" action="/signup/" method="POST">
+                    <span class="login100-form-title p-b-49">
+						Login-Signup with Google and Facebook in Django.
+					</span>
+                    
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Firstname required">
+						<span>This is simple demonstration Login through Google and Facebook directly along with Session Management in Django.</span>
+                        <hr>
+                        <span> For Such More Contents, Follow me on :</span>
+                        <hr>
+                        <span> Github :- <a href="https://www.github.com/abhishekrk29"> Abhishek Rajurkar</a> </span>
+                        <hr>
+                        <span> Linkedin :- <a href="https://www.linkedin.com/in/abhishekrk29/"> Abhishek Rajurkar</a>  </span>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+	{% endblock %}
